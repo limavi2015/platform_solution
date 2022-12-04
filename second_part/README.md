@@ -30,3 +30,4 @@ Your task is to:
 ![diagram](diagram.png)
 
 2. The workflow design will provide the data to the batch process in Part 1 through Redshift using standard JDBC or ODBC connections.
+3. In Part 1, 
