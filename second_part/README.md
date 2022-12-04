@@ -32,16 +32,15 @@ Workflow description:
 - (A) The application send the event to An Amazon API Gateway REST API that acts as a proxy to Amazon Kinesis Data Streams.
 - (B) Amazon Kinesis Data Streams to store the incoming streaming data.
 - (C) AWS Lambda function that processes the records from the data stream.
-- (D) Amazon Redshift warehouse, because of its SQL interfaces and the ease with which it processes petabytes of data. Reports, analytics, and visualizations are powered using Periscope Data. In such a way, the data is easily spread across different teams, allowing them to make decisions based on data.
+- (D) Amazon Redshift warehouse, because of its SQL interfaces and the ease with which it processes petabytes of data. Reports, analytics, and visualizations are powered using Periscope Data. In such a way, the data is easily spread across different teams (Data Analysis/Data Science), allowing them to make decisions based on data.
 - (E) Errors and failed records that occur during AWS Lambda processing are annotated, and the events are stored in Amazon Simple Queue Service (Amazon SQS). The queue stores metadata for failed batch records and Lambda errors, allowing customers to retrieve these records and determine the next steps to resolve them.
 - (F) An Amazon CloudWatch dashboard monitors application health, progress, resource utilization, events, and errors. 
 
-**2.** The workflow design will provide the data to the batch process in Part 1 through Redshift using standard JDBC or ODBC connections.
+**2.** The workflow design will provide the data to the batch process in Part 1 through Redshift. We need to use a ODBC connection and query the needed data to generate metrics and store the result.
 
-**3.** In Part 1, 
+**3.** In Part 1 I am using pyspark to calculate the required metric. In order to adapt that work as a streaming process we can use Spark Streamig to consume the data directly from kinesis and store the result on Redshift.
 
 **4.** Important decisions:
     -  Serverless design.
-    -  I decided to use Amazon Kinesis data stream because...
-    -  With this design we can guarantee the delivery message and the trace 
-    
+ 
+
