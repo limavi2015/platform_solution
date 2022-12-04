@@ -28,12 +28,12 @@ Your task is to:
 
 ![diagram](diagram.png)
 Workflow description:
-    A. The application send the event to An Amazon API Gateway REST API that acts as a proxy to Amazon Kinesis Data Streams.
-    B. Amazon Kinesis Data Streams to store the incoming streaming data.
-    C. AWS Lambda function that processes the records from the data stream.
-    D. Amazon Redshift warehouse, because of its SQL interfaces and the ease with which it processes petabytes of data. Reports, analytics, and visualizations are powered using Periscope Data. In such a way, the data is easily spread across different teams, allowing them to make decisions based on data.
-    E. Errors and failed records that occur during AWS Lambda processing are annotated, and the events are stored in Amazon Simple Queue Service (Amazon SQS). The queue stores metadata for failed batch records and Lambda errors, allowing customers to retrieve these records and determine the next steps to resolve them.
-    F. An Amazon CloudWatch dashboard monitors application health, progress, resource utilization, events, and errors. 
+- (A) The application send the event to An Amazon API Gateway REST API that acts as a proxy to Amazon Kinesis Data Streams.
+- (B) Amazon Kinesis Data Streams to store the incoming streaming data.
+- (C) AWS Lambda function that processes the records from the data stream.
+- (D) Amazon Redshift warehouse, because of its SQL interfaces and the ease with which it processes petabytes of data. Reports, analytics, and visualizations are powered using Periscope Data. In such a way, the data is easily spread across different teams, allowing them to make decisions based on data.
+- (E) Errors and failed records that occur during AWS Lambda processing are annotated, and the events are stored in Amazon Simple Queue Service (Amazon SQS). The queue stores metadata for failed batch records and Lambda errors, allowing customers to retrieve these records and determine the next steps to resolve them.
+- (F) An Amazon CloudWatch dashboard monitors application health, progress, resource utilization, events, and errors. 
 
 **2.** The workflow design will provide the data to the batch process in Part 1 through Redshift using standard JDBC or ODBC connections.
 
