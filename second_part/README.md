@@ -28,3 +28,5 @@ Your task is to:
 1. Workflow to move the user behaviour event data from the application to a backend.
 
 ![diagram](diagram.png)
+
+2. The workflow design will provide the data to the batch process in Part 1 through Redshift using standard JDBC or ODBC connections.
