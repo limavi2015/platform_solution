@@ -27,6 +27,7 @@ Your task is to:
 **1.** Workflow to move the user behaviour event data from the application to a backend.
 
 ![diagram](diagram.png)
+
 Workflow description:
 - (A) The application send the event to An Amazon API Gateway REST API that acts as a proxy to Amazon Kinesis Data Streams.
 - (B) Amazon Kinesis Data Streams to store the incoming streaming data.
