@@ -5,4 +5,4 @@ The customer provided an insight that the most frequently requested metric by al
 
 ## [Part 1 - Algorithm](https://github.com/limavi2015/platform_solution/tree/main/first_part#readme)
 
-## Part 2 - Infrastructure
+## [Part 2 - Infrastructure](https://github.com/limavi2015/platform_solution/blob/main/second_part/README.md)
