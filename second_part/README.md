@@ -28,12 +28,12 @@ Your task is to:
 
 ![diagram](diagram.png)
 
-Workflow description:
+Workflow and Technology selections:
 - (A) The application send the event to An Amazon API Gateway REST API that acts as a proxy to Amazon Kinesis Data Streams.
-- (B) Amazon Kinesis Data Streams to store the incoming streaming data.
-- (C) AWS Lambda function that processes the records from the data stream.
+- (B) AWS Kinesis Data Streams to store the incoming streaming data.
+- (C) AWS Lambda function that processes the records from the data stream. AWS Kinesis Data Streams features open-ended support for data consumers. Therefore, it can work with multiple consumers in case other teams need to consum the streaming data.
 - (D) Amazon Redshift warehouse, because of its SQL interfaces and the ease with which it processes petabytes of data. Reports, analytics, and visualizations are powered using Periscope Data. In such a way, the data is easily spread across different teams (Data Analysis/Data Science), allowing them to make decisions based on data.
-- (E) Errors and failed records that occur during AWS Lambda processing are annotated, and the events are stored in Amazon Simple Queue Service (Amazon SQS). The queue stores metadata for failed batch records and Lambda errors, allowing customers to retrieve these records and determine the next steps to resolve them.
+- (E) Errors and failed records that occur during AWS Lambda (B) processing are annotated, and the events are stored in Amazon Simple Queue Service (Amazon SQS). The queue stores metadata for failed batch records and Lambda errors, allowing customers to retrieve these records and determine the next steps to resolve them, for example generate a special alert and store the failed event in S3.
 - (F) An Amazon CloudWatch dashboard monitors application health, progress, resource utilization, events, and errors. 
 
 **2.** The workflow design will provide the data to the batch process in Part 1 through Redshift. We need to use a ODBC connection and query the needed data to generate metrics and store the result.
@@ -41,6 +41,9 @@ Workflow description:
 **3.** In Part 1 I am using pyspark to calculate the required metric. In order to adapt that work as a streaming process we can use Spark Streamig to consume the data directly from kinesis and store the result on Redshift.
 
 **4.** Important decisions:
-    -  Serverless design.
- 
-
+- This is a serverless design.
+- Low latency:
+    - Using AWS kinesis Data Streams we can have the data available to multiple real-time analytics applications within 70 milliseconds of being collected.
+    - Amazon Redshift automatically adds or removw capacity in a few seconds, so your queries continue to be served with low latency. 
+- Scalability
+    - We can create a scaling solution without manual intervention to add and remove shards to AWS Kinesis Data Streams .
