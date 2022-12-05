@@ -38,9 +38,7 @@ Workflow and Technology selections:
 
 **2.** The workflow design will provide the data to the batch process in Part 1 through Redshift. We need to use a ODBC connection and query the needed data to generate metrics and store the result.
 
-**3.** Explain any adaptations that your work from Part 1 - Algorithm would need to work as a streaming process
-
-In Part 1 I am using pyspark to calculate the required metric. In order to adapt that work as a streaming process we can use Spark Streamig to consume the data directly from kinesis and store the result on Redshift.
+**3.** In Part 1 I am using pyspark to calculate the required metric. In order to adapt that work as a streaming process we can use Spark Streamig to consume the data directly from kinesis and store the result on Redshift.
 
 **4.** Important decisions:
 - This is a serverless design.
