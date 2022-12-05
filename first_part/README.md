@@ -24,15 +24,13 @@ Your task is to:
    - 1 Trillion Events (~10 TB of data)
 To write your algorithm, you may use any of: Python, Java.
 
-## Solution
-1. Based on the events that the mobile app collects at this moment we cannot generate the metric requested. However, we can generate other metrics, for instance:
-- number of open flyers per day [script](https://github.com/limavi2015/platform_solution/blob/main/first_part/script.ipynb)
+# Solution
 
-Note: In order to generate the average time on flyer per user it is needed to know the complete event flow of the user, to validate when an open flyer is considered closed.
+I was asked to Compute the average time on flyer per user however, with the events that the mobile app collects at this moment we cannot generate the metric requested. 
+Then I decided to generate another metric about the number of open flyers per day. In this file [script.ipynb](https://github.com/limavi2015/platform_solution/blob/main/first_part/script.ipynb) is the code that I use to generate that metric. 
+This metric was generated with both Pyspark and Python scripts using generators.
+In order to generate the average time on flyer per user it is needed to know the complete event flow of the user, to validate when an open flyer is considered closed.
 
-2. 
-
-
-3. My algorithm scales for 1 million Events to 1 Trillion events using Spark partitions that allow us to process the data in parallel.
+My algorithm scales from 1 million Events to 1 Trillion events because I can use Spark partitions that allow us to process the data in parallel, then we only need to have the resources to scale horizontally.
 
 
